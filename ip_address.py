@@ -1,6 +1,5 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import requests
 import time
 
 ip_local = '' #Подставить  свой IP
@@ -8,7 +7,6 @@ ip_local = '' #Подставить  свой IP
 def ipAddress():
 	try:
 		site = urlopen('https://api.ipify.org/')
-
 		bs = BeautifulSoup(site, 'lxml')
 		try:
 			if bs.body.get_text() == ip_local:
@@ -17,7 +15,7 @@ def ipAddress():
 			else:
 				print(bs.body.get_text())
 		except:
-			print('Ошибка в обработке исключений')
+			print('Error')
 	except:
 		print("Error")
 while True:
